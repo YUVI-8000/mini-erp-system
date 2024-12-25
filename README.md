@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mini ERP System
 
-## Getting Started
+## Description
+The Mini ERP System is a simplified Enterprise Resource Planning (ERP) application designed as part of an internship assignment. This project demonstrates a basic implementation of inventory management, including products and sales orders. The backend is powered by Next.js API routes with Prisma as the ORM, and the frontend is built using Next.js with client-side rendering.
 
-First, run the development server:
+## Features
+- **Product Management**:
+  - View all products.
+  - Add new products.
+  - Edit existing products.
+  - Delete products.
+- **Sales Order Management**:
+  - View all sales orders.
+  - Add new sales orders.
+  - Edit existing sales orders.
+  - Delete sales orders.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
+- **Frontend**: Next.js (React)
+- **Backend**: Next.js API routes
+- **Database**: PostgreSQL
+- **ORM**: Prisma
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Prerequisites
+1. Install [Node.js](https://nodejs.org/) (v16 or later).
+2. Install [PostgreSQL](https://www.postgresql.org/).
+3. Install [Prisma CLI](https://www.prisma.io/docs/concepts/components/prisma-cli).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   cd mini-erp-system
+   ```
 
-## Learn More
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Configure the database:
+   - Create a PostgreSQL database.
+   - Set the `DATABASE_URL` in a `.env` file in the root directory:
+     ```env
+     DATABASE_URL="postgresql://<username>:<password>@<host>:<port>/<database_name>"
+     ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Apply the Prisma migrations to set up the database schema:
+   ```bash
+   npx prisma migrate dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Seed the database (optional):
+   ```bash
+   npx prisma db seed
+   ```
 
-## Deploy on Vercel
+6. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:3000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Folder Structure
+- **app/**: Contains all the frontend pages and components.
+- **pages/api/**: Contains all backend API routes.
+- **prisma/**:
+  - `schema.prisma`: The Prisma schema defining the database models.
+  - `seed.js`: Script to seed the database with initial data.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Usage
+1. Open the application in your browser at `http://localhost:3000`.
+2. Navigate to the "Products" page to manage products.
+3. Navigate to the "Sales Orders" page to manage sales orders.
+
+## Author
+**Yuvraj Singh**
+
+## License
+This project is for educational purposes as part of an internship assignment and is not licensed for production use.
+
